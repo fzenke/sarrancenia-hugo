@@ -1,0 +1,50 @@
+{{ $content_type := .Params.content_type }}
+
+{{ $aboutPage := .Site.GetPage $content_type }}
+
+{{ if or $aboutPage.Params.positions $aboutPage.Params.interests}}
+<div class="flex-container">
+{{ if $aboutPage.Params.interests }}
+  <div class="flex-item-left">
+	<h4 class="main_color">Interests</h4>
+	<ul>
+		{{range $aboutPage.Params.interests }}
+		<li>
+			{{.}}
+		</li>
+		{{end}}
+	</ul> 
+  </div>
+{{end}}
+{{if $aboutPage.Params.positions}}
+  <div class="flex-item-right">
+	<h4 class="main_color">Positions</h4>
+	{{range $positions := $aboutPage.Params.positions}}
+	<div class="row">
+		<div class="col-12">
+			<div class="institution_dates row">
+				<div class="col-7" id="institution_title">
+					{{$positions.item.institution}}
+					<div class="text-muted" id="description">
+						{{$positions.item.description}}
+						{{if $positions.item.other_info}}
+							{{$positions.item.other_info}}
+						{{end}}
+					</div>
+				</div>
+				<div class="main_color dates col-5 justify-content-end">
+					{{$positions.item.start_date}}
+					{{ if $positions.item.end_date }}
+					- {{$positions.item.end_date}}
+					{{else}}
+					- present
+					{{end}}
+				</div>
+			</div>
+		</div>
+	</div> 
+	{{end}}
+  </div>
+{{end}}
+</div>
+{{end}}

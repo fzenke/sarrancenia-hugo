@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
 body {
     font-family: 'Inter', sans-serif;
@@ -5,9 +14,8 @@ body {
 }
 
 a {
-    color: #8C1515;
+    color: #008A9B;
 }
-
 a:hover {
     text-decoration: underline;
     color: #050517;
@@ -16,7 +24,7 @@ a:hover {
 h2 code {
   font-family: Consolas,"courier new";
   /* background-color: #f1f1f1; */
-  background-color:  #8C1515;;
+  background-color:  #008A9B;
   color: white;
   padding: 2px;
 }
@@ -39,16 +47,12 @@ h2 code {
     margin: auto;
 }
 
-.h-100 {
+/* .h-100 {
     margin: auto;
-}
-
-.w-100 {
-    margin: auto;
-}
+} */
 
 .main_color  {
-    color: #8C1515;
+    color: #008A9B;
 }
 
 .secondary_color {
@@ -105,15 +109,11 @@ h2 code {
     margin-top: .2%;
 }
 
-.about .academia .degree_major {
+.about .positions #description {
     font-size: small;
 }
 
-.about .academia .other_info {
-    font-size: small;
-}
-
-.course {
+.description {
     margin-top: 1%;
 }
 
@@ -271,3 +271,49 @@ h2 code {
 .read_more {
     margin-top: 1%;
 }
+
+/* For mobile phone: */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.flex-item-left {
+  padding: 10px;
+  flex: 100%;
+}
+
+.flex-item-right {
+  padding: 10px;
+  flex: 100%;
+}
+
+[class*="col-"] {
+  width: 100%;
+} 
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+
+  .flex-container {
+    flex-direction: row;
+  }  
+
+  .flex-item-left { flex: 40%; }
+  .flex-item-right { flex: 60%; }
+}
+
+
